@@ -72,7 +72,7 @@ exports.deleteUser = (req, res) => {
 
     console.log("delete route called");
     console.log(req.params);
-    
+
     res.send({
         user: userDeleted,
         message: `User with ${id} has been deleted`,

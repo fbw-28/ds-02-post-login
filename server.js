@@ -35,20 +35,21 @@ app.patch('/users/:id', updateUser)
 app.delete('/users/:id',deleteUser)
 
 
-/* ex 2
+
+//ex 2
 let users = [ 
     {username: "User1", password: "PW1"}, 
     {username: "User2", password: "PW2"}, 
     {username: "User3", password: "PW3"}
 ]
-app.post('/users', (req,res) => {
+/* app.post('/users', (req,res) => {
     console.log("post users route called");
     //data from frontend
     console.log(req.body);
     res.send({
         message: 'User logged in successfully...'
     })
-})
+}) */
 
 app.post('/login', (req, res) => {
     console.log("post login route called");
@@ -62,5 +63,5 @@ app.post('/login', (req, res) => {
     ? res.send('Login successful') 
     : res.send('Login failed')
 
-}) */
+}) 
 

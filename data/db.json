@@ -1,14 +1,19 @@
 {
   "users": [
     {
-      "name": "Martin",
-      "email": "example@gmailFromMartinnewEmail.com",
-      "id": "1602163799130"
+      "name": "Anna",
+      "email": "anna@gmail.com",
+      "id": "1602166632358"
     },
     {
-      "name": "Martin",
-      "email": "example@gmailFromMartin.com",
-      "id": "1602163933314"
+      "name": "Rob",
+      "email": "rob@gmail.com",
+      "id": "1602166652609"
+    },
+    {
+      "name": "Lena",
+      "email": "lenaUpdatedEmail@gmail.com",
+      "id": "1602167720585"
     }
   ]
 }

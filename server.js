@@ -6,7 +6,7 @@ app.listen(port, () => {
     console.log(`Started on port ${port}`);
 })
 
-const {getAllUsers, getUser, addUser} = require('./controllers/usersController')
+const {getAllUsers, getUser, addUser, updateUser, deleteUser} = require('./controllers/usersController')
 
 //middleware
 app.use(express.json())
@@ -20,39 +20,19 @@ const hello = (req, res) => {
 app.get('/', hello)
 
 //all users
-app.get('/users',(req, res) => {
-    console.log("get users route called");
-    console.log(req.params);
-    res.send({ users: [{id: "123", name: "Rob"}]})
-})
+app.get('/users', getAllUsers)
 
 //sign up a new user
-app.post('/users',(req, res) => {
-    console.log("post route called");
-    console.log(req.body);
-    res.send({ users: [{id: "123", name: "Rob"}]})
-})
+app.post('/users',addUser)
 
 //a single user by id
-app.get('/users/:id',(req, res) => {
-    console.log("single user route called");
-    console.log(req.params);
-    res.send({ users: [{id: "123", name: "Rob"}]})
-})
+app.get('/users/:id',getUser)
 
 //update existing user by id
-app.patch('/users/:id',(req, res) => {
-    console.log("update route called");
-    console.log(req.params);
-    res.send({ users: [{id: "123", name: "Rob"}]})
-})
+app.patch('/users/:id', updateUser)
 
 //delete existing user by id
-app.delete('/users/:id',(req, res) => {
-    console.log("delete route called");
-    console.log(req.params);
-    res.send({ users: [{id: "123", name: "Rob"}]})
-})
+app.delete('/users/:id',deleteUser)
 
 
 /* ex 2

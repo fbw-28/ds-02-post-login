@@ -8,7 +8,7 @@ app.use(express.json())
 let users = [ 
     {username: "User1", password: "PW1"}, 
     {username: "User2", password: "PW2"}, 
-    {username: "User3", password: "PW3"}, 
+    {username: "User3", password: "PW3"}
 ]
 
 app.get('/', (req, res) => {
@@ -28,7 +28,7 @@ app.post('/login', (req, res) => {
     console.log("post login route called");
     let name = req.body.name;
     let password = req.body.password;
-    //const {userName, password} = req.body
+    //const {name, password} = req.body
 
     const searchUser = users.find(user => user.username === name && user.password === password);
     

@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = 5000
 
+const {} = require('./controllers/usersController')
+
 //middleware
 app.use(express.json())
 

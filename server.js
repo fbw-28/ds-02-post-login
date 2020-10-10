@@ -1,47 +1,56 @@
-const express = require('express')
-const app = express()
-const port = 5000
+const express = require('express');
+const app = express();
+const port = 5000;
 
 app.listen(port, () => {
     console.log(`Started on port ${port}`);
-})
+});
 
-const {getAllUsers, getUser, addUser, updateUser, deleteUser} = require('./controllers/usersController')
+const {
+    welcome,
+    getAllUsers,
+    getUser,
+    addUser,
+    updateUser,
+    deleteUser,
+    checkLogin
+} = require('./controllers/usersController');
 
 //middleware
-app.use(express.json())
+app.use(express.json());
 
-const hello = (req, res) => {
-    res.send({ welcome: "Welcome to user DB"})
-}
 
 //Routes
 //home page
-app.get('/', hello)
+app.get('/', welcome);
 
 //all users
-app.get('/users', getAllUsers)
+app.get('/users', getAllUsers);
 
 //sign up a new user
-app.post('/users',addUser)
+app.post('/users', addUser);
 
 //a single user by id
-app.get('/users/:id',getUser)
+app.get('/users/:id', getUser);
 
 //update existing user by id
-app.patch('/users/:id', updateUser)
+app.patch('/users/:id', updateUser);
 
 //delete existing user by id
-app.delete('/users/:id',deleteUser)
+app.delete('/users/:id', deleteUser);
+
+//check user login
+app.post('/login', checkLogin);
+
 
 
 
 //ex 2
-let users = [ 
+/* let users = [ 
     {username: "User1", password: "PW1"}, 
     {username: "User2", password: "PW2"}, 
     {username: "User3", password: "PW3"}
-]
+] */
 /* app.post('/users', (req,res) => {
     console.log("post users route called");
     //data from frontend
@@ -51,7 +60,7 @@ let users = [
     })
 }) */
 
-app.post('/login', (req, res) => {
+/* app.post('/login', (req, res) => {
     console.log("post login route called");
     let name = req.body.name;
     let password = req.body.password;
@@ -64,4 +73,4 @@ app.post('/login', (req, res) => {
     : res.send('Login failed')
 
 }) 
-
+ */

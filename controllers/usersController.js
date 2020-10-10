@@ -1,14 +1,18 @@
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
-const adapter = new FileSync('./data/db.json')
-const db = low(adapter)
+const low = require('lowdb');
+const FileSync = require('lowdb/adapters/FileSync');
+const adapter = new FileSync('./data/db.json');
+const db = low(adapter);
 
 db.defaults({
     users: []
-}).write()
+}).write();
+
+exports.welcome = (req, res) => {
+    res.send({ hello: "Welcome to user DB"})
+}
 
 exports.getAllUsers = (req, res) => {
-    let users = db.get("users").value()
+    let users = db.get("users").value();
     console.log("get users route called");
     console.log(req.params);
     res.send(users)
@@ -77,4 +81,17 @@ exports.deleteUser = (req, res) => {
         user: userDeleted,
         message: `User with ${id} has been deleted`,
     })
+}
+
+exports.checkLogin = (req, res) => {
+    console.log("post login route called");
+    let name = req.body.name;
+    let email = req.body.email;
+    let users = db.get("users").value();
+
+    const searchUser = users.find(user => user.name === name && user.email === email);
+    
+    searchUser 
+    ? res.send({message: `User ${name} logged successful`}) 
+    : res.send('Login failed')
 }

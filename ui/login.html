@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head><script>
+
+    const onSubmit = (e, form) => {
+      console.log("Submit handler called")
+      e.preventDefault()
+  
+  
+      let username = form.name.value
+      let password = form.password.value
+  
+      // POST call to backend
+      fetch('http://localhost:5000/login', {
+        method: "POST",
+        // header Content-Type we tell, whats inside this crazy package we 
+        // are sending. The backend needs to know, otherwise it will ignore it!
+        headers: {
+          "Content-Type": "application/json"
+        },
+        // JSON data we want to send to a backend always needs to 
+        // be send as a STRING over the wire
+        // the backend will parse that string back into an javascript object
+        body: JSON.stringify( { username: username, password: password } )
+      }).then(res =>res.json()).then(data => console.log(data.message))
+    }
+  
+  </script>
+  
+  <body>
+    
+    <h1>Login with your Username and Password!</h1>
+    <form onsubmit="onSubmit(event, this)">
+      <div>
+        <label for="">Name</label>
+        <input name="name" type="text">
+        <label for="">Password</label>
+        <input name="password" type="text">
+      </div>
+      <button>Login</button>
+    </form>
+  
+  </body>
+  </html>

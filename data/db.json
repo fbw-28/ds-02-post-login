@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": "001",
+      "username": "User1",
+      "password": "PW1"
+    },
+    {
+      "id": "002",
+      "username": "User2",
+      "password": "PW2"
+    },
+    {
+      "id": "003",
+      "username": "User3",
+      "password": "PW3"
+    },
+    {
+      "username": "User1",
+      "id": "1602606729373"
+    },
+    {
+      "id": "1602606731750"
+    },
+    {
+      "id": "1602606774297",
+      "username": "joao",
+      "password": null
+    },
+    {
+      "id": "1602606784613",
+      "username": "joao",
+      "password": "ebaaaa"
+    }
+  ]
+}
